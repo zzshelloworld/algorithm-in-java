@@ -1,20 +1,19 @@
 package sort;
-// 优化点
-// 便利一次，找出最小值和最大值
-// 一次提取两个数进行比较
-// 不稳，两个相等的数会 交换位置，验证
-public class SelectionSort {
 
+public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = {5, 3, 6, 8, 1, 7, 9, 4, 2};
+        sort(arr);
+        printAll(arr);
+    }
 
-        for (int k = 0; k < arr.length - 1; k++) {
-            int minPos = k;
-            for (int j = k; j < arr.length; j++) {
-                minPos = arr[j] < arr[minPos] ? j : minPos;
+    private static void sort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
+                }
             }
-            swap(arr, minPos, k);
-            printAll(arr);
         }
     }
 
